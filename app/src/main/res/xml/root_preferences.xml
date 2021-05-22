@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <PreferenceCategory
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:title="码速及单双键设置">
+
+        <ListPreference
+            android:key="the_WPM_speed"
+            android:entries="@array/wpm.name"
+            android:entryValues="@array/wpm.keyvalue"
+            android:title="WPM(发送单词”PARIS“的个数/分钟" />
+
+        <SwitchPreferenceCompat
+            app:key="preference_Swithc_DoubleKey"
+            app:title="双键左右位置互换" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="训练规则设置">
+
+        <ListPreference
+            android:key="preference_TrainRules"
+            android:entries="@array/train_rules.name"
+            android:entryValues="@array/train_rules.KeyValue"
+            android:title="训练选择(点击！！！）" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="2期工程（未做）">
+
+        <SwitchPreferenceCompat
+            app:key="preference_KeyStatus"
+            app:title="双键切换单键" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="preference_Webservie"
+            android:title="检查Webservie更新" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="preference_bluetooth"
+            android:title="检查蓝牙连接"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".end">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/end_shuoming_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/end_shuoming_title_text" />
+            <TextView
+                android:id="@+id/end_shuoming_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:textStyle="bold"
+                android:text="@string/end_shuoming_content" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/end_zhixie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/end_zhixie_title_text" />
+            <TextView
+                android:id="@+id/end_zhixie_content1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content1" />
+            <TextView
+                android:id="@+id/end_zhixie_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content2" />
+            <TextView
+                android:id="@+id/end_zhixie_content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content3" />
+            <TextView
+                android:id="@+id/end_zhixie_content4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content4" />
+            <TextView
+                android:id="@+id/end_zhixie_content5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content5" />
+            <TextView
+                android:id="@+id/end_zhixie_content6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content6" />
+            <TextView
+                android:id="@+id/end_zhixie_content7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content7" />
+            <TextView
+                android:id="@+id/end_zhixie_content8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content8" />
+            <TextView
+                android:id="@+id/end_zhixie_content9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content9" />
+            <TextView
+                android:id="@+id/end_zhixie_content10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:padding="4dp"
+                android:text="@string/end_zhixie_content10" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/end_text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/end_text" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/end_text_content"
+                android:textColor="#DA0A0A4C"
+                android:textStyle="italic|bold"
+                android:text="@string/end_text_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

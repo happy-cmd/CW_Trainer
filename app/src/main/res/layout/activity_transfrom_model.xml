@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".transfrom.TransfromModel"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/transfrom_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/english_transfrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="请输入英文..."
+            android:hint="请输入英文..."
+            android:ems="10"
+            android:inputType="textCapCharacters|textVisiblePassword|textMultiLine"
+            tools:ignore="LabelFor"
+            android:textIsSelectable="true"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/transfrom_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1_transfrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button1_transfrom_title"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/button2_transfrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button2_transfrom_title"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/button3_transfrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button3_transfrom_title"
+            style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/transfrom_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/morsecode_transfrom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textCapCharacters|textVisiblePassword|textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:autofillHints="请输入摩尔斯电码...."
+            android:hint="请输入摩尔斯电码...."
+            android:textIsSelectable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/transfrom_layout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button4_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button4_dot_content" />
+
+        <Button
+            android:id="@+id/button5_dash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button5_dash_content" />
+
+        <Button
+            android:id="@+id/button6_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button6_space_content" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

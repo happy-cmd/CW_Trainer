@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="top.wxcui.morse">
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CW_Trainer">
+        <activity
+            android:name=".end"
+            android:label="说明及致谢"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity
+            android:name=".Help.Help"
+            android:label="帮助界面"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity
+            android:name=".transfrom.TransfromModel"
+            android:label="电码转换"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity
+            android:name=".SelfLesson_NewWord"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity
+            android:name=".SelfLesson"
+            android:label="@string/title_activity_self_lesson"
+            android:parentActivityName=".StudyModel"
+            android:theme="@style/Theme.CW_Trainer" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".SettingsActivity"
+            android:theme="@style/Theme.CW_Trainer.content" /> <!-- 利用https://antonioleiva.com/branded-launch-screen/ 为实现加载登录页面 -->
+        <activity
+            android:name=".StudyModel"
+            android:label="@string/the_label_studyModel"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity
+            android:name=".InputFreedom"
+            android:label="@string/the_label_Inputfreedom"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CW_Trainer.content" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

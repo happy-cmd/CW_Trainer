@@ -1,0 +1,182 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="wpm.name">
+        <item>wpm-5</item>
+        <item>wpm-7</item>
+        <item>wpm-10</item>
+        <item>wpm-12</item>
+        <item>wpm-14</item>
+        <item>wpm-16</item>
+        <item>wpm-18</item>
+        <item>wpm-20</item>
+    </string-array>
+
+    <string-array name="wpm.keyvalue">
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="train_rules.name">
+        <item>1-随机排列</item>
+        <item>2-有序排列</item>
+
+    </string-array>
+
+    <string-array name="train_rules.KeyValue">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
+    <string-array name="class1_spinner">
+            <item>1Lesson01:ENDX0</item>
+            <item>1Lesson02:TAWP1</item>
+            <item>1Lesson03:复习1&#044;2</item>
+            <item>1Lesson04:MGZQ2</item>
+            <item>1Lesson05:IUVH3</item>
+            <item>1Lesson06:复习4&#044;5</item>
+            <item>1Lesson07:复习1&#044;2&#044;4&#044;5</item>
+            <item>1Lesson08:OKYC4</item>
+            <item>1Lesson09:RLF56</item>
+            <item>1Lesson10:复习8&#044;9</item>
+            <item>1Lesson11:SBJ78</item>
+        <item>1Lesson12:&#043;&#061;&#063;&#047;9</item>
+        <item>1Lesson13:复习11&#044;12</item>
+        <item>1Lesson14:复习8&#044;9&#044;11&#044;12</item>
+        <item>1Lesson15:复习1245</item>
+        <item>1Lesson16:26个英文字母</item>
+        <item>1Lesson17:10个数字</item>
+        <item>1Lesson18:26个字母&#043;10个数字</item>
+        <item>1Lesson19:符号 &#058;&#043;&#061;&#063;&#047;\&#039;&#045;&#044;&#046;</item>
+        <item>1Lesson20:所有码字</item>
+        </string-array>
+
+    <string-array name="class2_spinner">
+        <item>2Lesson01:KM</item>
+        <item>2Lesson02:KMR</item>
+        <item>2Lesson03:KMRS</item>
+        <item>2Lesson04:KMRSU</item>
+        <item>2Lesson05:KMRSUA</item>
+        <item>2Lesson06:KMRSUAP</item>
+        <item>2Lesson07:KMRSUAPT</item>
+        <item>2Lesson08:KMRSUAPTL</item>
+        <item>2Lesson09:KMRSUAPTLO</item>
+        <item>2Lesson10:KMRSUAPTLOW</item>
+        <item>2Lesson11:KMRSUAPTLOWI</item>
+        <item>2Lesson12:KMRSUAPTLOWI&#046;</item>
+        <item>2Lesson13:KMRSUAPTLOWI&#046;N</item>
+        <item>2Lesson14:KMRSUAPTLOWI&#046;NJ</item>
+        <item>2Lesson15:KMRSUAPTLOWI&#046;NJE</item>
+        <item>2Lesson16:KMRSUAPTLOWI&#046;NJEF</item>
+        <item>2Lesson17:KMRSUAPTLOWI&#046;NJEFO</item>
+        <item>2Lesson18:KMRSUAPTLOWI&#046;NJEFOY</item>
+        <item>2Lesson19:KMRSUAPTLOWI&#046;NJEFOY&#044;</item>
+        <item>2Lesson20:KMRSUAPTLOWI&#046;NJEFOY&#044;V</item>
+        <item>2Lesson21:KMRSUAPTLOWI&#046;NJEFOY&#044;VG</item>
+        <item>2Lesson22:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5</item>
+        <item>2Lesson23:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;</item>
+        <item>2Lesson24:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q</item>
+        <item>2Lesson25:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9</item>
+        <item>2Lesson26:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9Z</item>
+        <item>2Lesson27:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH</item>
+        <item>2Lesson28:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH3</item>
+        <item>2Lesson29:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38</item>
+        <item>2Lesson30:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B</item>
+        <item>2Lesson31:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;</item>
+        <item>2Lesson32:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;4</item>
+        <item>2Lesson33:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;42</item>
+        <item>2Lesson34:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427</item>
+        <item>2Lesson35:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C</item>
+        <item>2Lesson36:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1</item>
+        <item>2Lesson37:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D</item>
+        <item>2Lesson38:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D6</item>
+        <item>2Lesson39:KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D6X</item>
+    </string-array>
+
+    <string-array name="class2_lesson">
+        <item>KM</item>
+        <item>KMR</item>
+        <item>KMRS</item>
+        <item>KMRSU</item>
+        <item>KMRSUA</item>
+        <item>KMRSUAP</item>
+        <item>KMRSUAPT</item>
+        <item>KMRSUAPTL</item>
+        <item>KMRSUAPTLO</item>
+        <item>KMRSUAPTLOW</item>
+        <item>KMRSUAPTLOWI</item>
+        <item>KMRSUAPTLOWI&#046;</item>
+        <item>KMRSUAPTLOWI&#046;N</item>
+        <item>KMRSUAPTLOWI&#046;NJ</item>
+        <item>KMRSUAPTLOWI&#046;NJE</item>
+        <item>KMRSUAPTLOWI&#046;NJEF</item>
+        <item>KMRSUAPTLOWI&#046;NJEFO</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;V</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9Z</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH3</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;4</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;42</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D6</item>
+        <item>KMRSUAPTLOWI&#046;NJEFOY&#044;VG5&#047;Q9ZH38B&#63;427C1D6X</item>
+    </string-array>
+
+    <string-array name="class1_lesson">
+        <item>ENDX0</item>
+        <item>TAWP1</item>
+        <item>ENDX0TAWP1</item>
+        <item>MGZQ2</item>
+        <item>IUVH3</item>
+        <item>MGZQ2IUVH3</item>
+        <item>ENDX0TAWP1MGZQ2IUVH3</item>
+        <item>OKYC4</item>
+        <item>RLF56</item>
+        <item>OKYC4RLF56</item>
+        <item>SBJ78</item>
+        <item>&#043;&#061;&#063;&#047;9</item>
+        <item>SBJ78&#043;&#061;&#063;&#047;9</item>
+        <item>OKYC4RLF56SBJ78&#043;&#061;&#063;&#047;9</item>
+        <item>ENDX0TAWP1MGZQ2IUVH3</item>
+        <item>ABCDEFGHIGKLMNOPQRSTUVWXYZ</item>
+        <item>0123456789</item>
+        <item>ABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789</item>
+        <item>&#058;&#043;&#061;&#063;&#047;\&#039;&#045;&#044;&#046;</item>
+        <item>ABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789 &#058;&#043;&#061;&#063;&#047;\&#039;&#045;&#044;&#046;</item>
+    </string-array>
+
+
+
+
+
+
+</resources>

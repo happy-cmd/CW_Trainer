@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Help.Help">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mode_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#EB020202"
+            android:gravity="center"
+            android:text="@string/mode_setting_title" />
+
+        <TextView
+            android:id="@+id/mode_setting_content1"
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:text="@string/mode_setting_content_text1" />
+
+        <TextView
+            android:id="@+id/mode_setting_content2"
+            android:layout_width="match_parent"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:text="@string/mode_setting_content_text2" />
+        <TextView
+            android:id="@+id/mode_setting_content3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/mode_setting_content_text3" />
+        <TextView
+            android:id="@+id/mode_setting_content4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/mode_setting_content_text4" />
+
+        <TextView
+            android:id="@+id/mode_setting_content5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="@color/teal_200"
+            android:text="@string/mode_setting_content_text5" />
+
+        <TextView
+            android:id="@+id/mode1_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#EB020202"
+            android:text="@string/mode1_title_text" />
+        <TextView
+            android:id="@+id/mode1_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#FB0202"
+            android:text="@string/mode1_warning"
+            />
+        <TextView
+            android:id="@+id/mode1_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:text="@string/mode1_brief" />
+
+        <TextView
+            android:id="@+id/mode1_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help_inputfreedom" />
+
+        <TextView
+            android:id="@+id/mode2_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#EB020202"
+            android:text="@string/mode2_title_text" />
+
+        <TextView
+            android:id="@+id/mode2_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#FB0202"
+            android:text="@string/mode2_warning"
+            />
+        <TextView
+            android:id="@+id/mode2_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:text="@string/mode2_brief" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode2_content_sub1_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub1_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/mode2_1_content" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub1_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/mode2_1_content_1" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub1_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/mode2_1_content_2" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub1_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="#EB020202"
+            android:text="@string/mode2_1_content_3" />
+
+
+        <TextView
+            android:id="@+id/mode2_content_sub2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode2_content_sub2_text"
+            android:padding="4dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub2_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode2_2_content" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode2_content_sub3_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/mode2_content_sub3_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode2_3_content" />
+
+        <TextView
+            android:id="@+id/mode3_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#EB020202"
+            android:text="@string/mode3_title_text" />
+
+        <TextView
+            android:id="@+id/mode3_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#FB0202"
+            android:text="@string/mode3_warning"
+            />
+        <TextView
+            android:id="@+id/mode3_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:text="@string/mode3_brief" />
+
+        <TextView
+            android:id="@+id/mode3_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help_mode3" />
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

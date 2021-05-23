@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:textColor="#EB020202"
+            android:textColor="#EBF80101"
             android:text="@string/mode2_1_content_3" />
 
 

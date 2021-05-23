@@ -63,7 +63,6 @@
     <string name="mode_setting_content_text3">功能介绍：2.双键左右位置互换：当打开此按钮，应用中双键（点/划）的位置会交换，选择您顺手的方式吧！</string>
     <string name="mode_setting_content_text4">功能介绍：3.训练规则设置：当选择1-随机排列时，模块2-课程学习训练中的码字将会随机输出；反之，当选择2-有序排列时，模块2-课程学习训练中的码字将会按照课程显示的顺序输出。</string>
     <string name="mode_setting_content_text5">2期工程：这是还没有完成的部分。或许，单键模式？连接蓝牙的外设电键输入？webservie云数据更新课程内容？</string>
-
     <string name="mode1_title_text">模块1-模拟自由训练</string>
     <string name="mode1_warning">注意，在此模块中，不要尝试高速(大于12WPM）的按键发报，模拟按键不是实际电键，没有自动回弹的弹簧，对手指不好，应注意！！</string>
 
@@ -82,7 +81,8 @@
     <string name="mode2_1_content_1">训练模式1的训练思路简述：CW_Player中用户先熟悉每一节课的码字（自我敲码练习，听码练习，您可以搜索CW_Player下载软件查看具体方法），在本应用中，可以改版为用户可以先将课程内容在模块1-模拟自由训练中练习拍发，然后在模块2-课程学习训练，通过边听边抄写的方式，当抄写正确率达到95%以上，可以开启下一节课。</string>
     <string name="mode2_1_content_2">训练模式2的训练思路简述：用户按照课程顺序，选择合适的WPM（码速）（用户应选择一个较高的码组，即实际使用时的码组），当课程1的抄写正确率达到90%以上，可以进入下一个课程，重复如上，每次仅增加一个新的码字，重复训练，
     在高的码速下，达到对于莫尔斯电码同字符间的一种”直觉感受“（KOCH-method，可以进一步检索这种方法）。</string>
-    <string name="mode2_1_content_3">训练模式3：或许，您有特别想用摩尔斯电码说出的话，何不添加内容，选择有序排列，加以练习呢？</string>
+    <string name="mode2_1_content_3">训练模式3：或许，您有特别想用摩尔斯电码说出的话，何不添加内容，选择有序排列，加以练习呢？
+    注意，不要输入中文，仍会输出音频，但不是正确的摩尔斯电码！</string>
     <string name="mode2_content_sub2_text">训练规则</string>
     <string name="mode2_2_content">在主界面导航栏点击右上角的设置按钮进行设置，分为两种，1-随机排列，2-有序（即按照显示的课程内容顺序）排列。</string>
     <string name="mode2_content_sub3_text">如何训练</string>

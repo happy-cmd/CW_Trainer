@@ -54,7 +54,7 @@ private  static RoomDatabase.Callback sRoomDatabaseCallback=
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final WordDao mDao;
-        String[] words = {"左右滑动删除元素", "不要输入中文", "73，CQ!"};
+        String[] words = {"左右滑动删除元素", "不要输入中文", "73,CQ!"};
 
 
         PopulateDbAsync(WordRoomDatabase db) {

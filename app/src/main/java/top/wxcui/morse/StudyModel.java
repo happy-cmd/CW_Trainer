@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -136,6 +137,7 @@ public class StudyModel extends AppCompatActivity {
                         if (key.equals("preference_TrainRules")) {
                             MODE = Integer.parseInt(sharedPreferences.getString("preference_TrainRules", "1"));
                             //当设置中修改WPM时，同样修改此class中的WPM值
+                            Toast.makeText(getApplicationContext(),"注意，如果您在课程学习训练中，请重新点击课程内容以应用新的排序！",Toast.LENGTH_LONG).show();
                         }
                         ;
 

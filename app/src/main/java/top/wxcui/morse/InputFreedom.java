@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import android.content.SharedPreferences;
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -23,16 +26,6 @@ public class InputFreedom extends AppCompatActivity {
     private MorseCoder morseCoder = new MorseCoder();
     private EditText The_Result_Edittext;
     private TextView Display_View;
-
-    MediaPlayer mMediaPlayer_e;
-    MediaPlayer mMediaPlayer_t;
-    private MediaPlayer mMediaPlayer_e2;
-    private MediaPlayer mMediaPlayer_t2;
-    Boolean flag_e=true;//两个mediaplayer交换使用，随时释放release
-    Boolean flag_t=true;//单独一个mediaplayer不释放，系统是有上限的
-
-    Boolean e_first=true;//第一次调用，给mMediaPlayer_e2初始化
-    Boolean t_first=true;//第一次调用，给mMediaPlayer_t2初始化
 
     private SharedPreferences sharedPreferences;//设置对象
     private SharedPreferences.OnSharedPreferenceChangeListener listener;//设置数据变化监听器
@@ -144,6 +137,50 @@ public class InputFreedom extends AppCompatActivity {
             }
 
         };
+    SoundPool soundPool;
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            AudioAttributes audioAttributes=new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .build();
+            soundPool=new SoundPool.Builder()
+                    .setMaxStreams(2)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+
+        }
+        else
+            soundPool=new SoundPool(2,0,0);
+        int sound_e;
+        int sound_t;
+
+
+        if (WPM < 6) {
+            sound_e=soundPool.load(this,R.raw.wpm5e,1);
+            sound_t=soundPool.load(this,R.raw.wpm5e,1);
+        } else if (WPM < 10) {
+            sound_e=soundPool.load(this,R.raw.wpm7e,1);
+            sound_t=soundPool.load(this,R.raw.wpm7e,1);
+        } else if (WPM < 12) {
+            sound_e=soundPool.load(this,R.raw.wpm10e,1);
+            sound_t=soundPool.load(this,R.raw.wpm10e,1);
+        } else if (WPM < 14) {
+            sound_e=soundPool.load(this,R.raw.wpm12e,1);
+            sound_t=soundPool.load(this,R.raw.wpm12t,1);
+        } else if (WPM < 16) {
+            sound_e=soundPool.load(this,R.raw.wpm14e,1);
+            sound_t=soundPool.load(this,R.raw.wpm14e,1);
+        } else if (WPM < 18) {
+            sound_e=soundPool.load(this,R.raw.wpm16e,1);
+            sound_t=soundPool.load(this,R.raw.wpm16e,1);
+        } else if (WPM < 20) {
+            sound_e=soundPool.load(this,R.raw.wpm18e,1);
+            sound_t=soundPool.load(this,R.raw.wpm18e,1);
+        } else {
+            sound_e=soundPool.load(this,R.raw.wpm20e,1);
+            sound_t=soundPool.load(this,R.raw.wpm20e,1);
+        }
+
 
 
         Input_dot.setOnClickListener(new OnMultiClickListener() {
@@ -167,55 +204,7 @@ public class InputFreedom extends AppCompatActivity {
 
                 }
                 Display_View.append(".");
-                if(flag_e) {
-                    if(e_first) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                        e_first=false;
-                    }
-                    if (WPM < 6) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                    } else if (WPM < 10) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                    } else if (WPM < 12) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                    } else if (WPM < 14) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                    } else if (WPM < 16) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                    } else if (WPM < 18) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                    } else if (WPM < 20) {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                    } else {
-                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                    }
-                    mMediaPlayer_e.start();
-                    flag_e=false;
-                    mMediaPlayer_e2.release();
-                }
-                else {
-
-                    if (WPM < 6) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                    } else if (WPM < 10) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                    } else if (WPM < 12) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                    } else if (WPM < 14) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                    } else if (WPM < 16) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                    } else if (WPM < 18) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                    } else if (WPM < 20) {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                    } else {
-                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                    }
-                    mMediaPlayer_e2.start();
-                    flag_e=true;
-                    mMediaPlayer_e.release();
-                }
+                soundPool.play(sound_e,1,1,1,0,1);
 
 
             }
@@ -247,54 +236,7 @@ public class InputFreedom extends AppCompatActivity {
 //                Uri uri=Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.wpm10e);
 //                ap.play(getBaseContext(), uri, false, USAGE_MEDIA);
                 //dash_sound.start();
-                if(flag_t) {
-                    if(t_first) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                        t_first=false;
-                    }
-                    if (WPM < 6) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                    } else if (WPM < 10) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                    } else if (WPM < 12) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                    } else if (WPM < 14) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                    } else if (WPM < 16) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                    } else if (WPM < 18) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                    } else if (WPM < 20) {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                    } else {
-                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                    }
-                    mMediaPlayer_t.start();
-                    flag_t=false;
-                    mMediaPlayer_t2.release();
-                }else {
-                    if (WPM < 6) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                    } else if (WPM < 10) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                    } else if (WPM < 12) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                    } else if (WPM < 14) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                    } else if (WPM < 16) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                    } else if (WPM < 18) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                    } else if (WPM < 20) {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                    } else {
-                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                    }
-                    mMediaPlayer_t2.start();
-                    flag_t=true;
-                    mMediaPlayer_t.release();
-
-                }
+                soundPool.play(sound_e,1,1,1,0,1);
 
             }
         });
@@ -309,28 +251,6 @@ public class InputFreedom extends AppCompatActivity {
 
 
     }
-
-//    class playAsynTask extends AsyncTask<Integer,Void,Void>{
-//
-//
-//        @Override
-//        protected Void doInBackground(Integer... integers) {
-//            if(integers[0]==1){
-//
-//           if (mMediaPlayer_e!=null&&mMediaPlayer_e.isPlaying())
-//               mMediaPlayer_e.stop();
-//               mMediaPlayer_e.start();
-//            }
-//            else
-//            {
-//                if (mMediaPlayer_t!=null&&mMediaPlayer_t.isPlaying())
-//                    mMediaPlayer_t.stop();
-//                mMediaPlayer_t.start();
-//            }
-//
-//            return null;
-//        }
-//    }
 
 
 

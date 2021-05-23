@@ -2,6 +2,7 @@ package top.wxcui.morse;
 //自定义引用类
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -14,8 +15,12 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
@@ -80,6 +85,7 @@ public class StudyModel extends AppCompatActivity {
     private int delay;
     private SoundsPlayer soundsPlayer;
     CountDownTimer countDownTimer;
+    private  SoundPool soundPool;
 
     private int flag_countDownTimer=0;//一次倒计时完毕的标志
 
@@ -135,22 +141,55 @@ public class StudyModel extends AppCompatActivity {
 
                     }
                 };
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            AudioAttributes audioAttributes=new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .build();
+            soundPool=new SoundPool.Builder()
+                    .setMaxStreams(2)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
 
+        }
+        else
+            soundPool=new SoundPool(2,0,0);
+            int sound_e;
+            int sound_t;
+
+
+        if (WPM < 6) {
+             sound_e=soundPool.load(this,R.raw.wpm5e,1);
+             sound_t=soundPool.load(this,R.raw.wpm5e,1);
+        } else if (WPM < 10) {
+            sound_e=soundPool.load(this,R.raw.wpm7e,1);
+            sound_t=soundPool.load(this,R.raw.wpm7e,1);
+        } else if (WPM < 12) {
+            sound_e=soundPool.load(this,R.raw.wpm10e,1);
+            sound_t=soundPool.load(this,R.raw.wpm10e,1);
+        } else if (WPM < 14) {
+            sound_e=soundPool.load(this,R.raw.wpm12e,1);
+            sound_t=soundPool.load(this,R.raw.wpm12t,1);
+        } else if (WPM < 16) {
+            sound_e=soundPool.load(this,R.raw.wpm14e,1);
+            sound_t=soundPool.load(this,R.raw.wpm14e,1);
+        } else if (WPM < 18) {
+            sound_e=soundPool.load(this,R.raw.wpm16e,1);
+            sound_t=soundPool.load(this,R.raw.wpm16e,1);
+        } else if (WPM < 20) {
+            sound_e=soundPool.load(this,R.raw.wpm18e,1);
+            sound_t=soundPool.load(this,R.raw.wpm18e,1);
+        } else {
+            sound_e=soundPool.load(this,R.raw.wpm20e,1);
+            sound_t=soundPool.load(this,R.raw.wpm20e,1);
+        }
 
         Class1_Lessons = getResources().getStringArray(R.array.class1_lesson);
         Class2_Lessons=getResources().getStringArray(R.array.class2_lesson);
 
         countDownTimer = new CountDownTimer(1333*delay, delay) {
-            int i = 0;
-            private MediaPlayer mMediaPlayer_e;
-            private MediaPlayer mMediaPlayer_t;
-            private MediaPlayer mMediaPlayer_e2;
-            private MediaPlayer mMediaPlayer_t2;
-            Boolean flag_e=true;//两个mediaplayer交换使用，随时释放release
-            Boolean flag_t=true;//单独一个mediaplayer不释放，系统是有上限的
 
-            Boolean e_first=true;//第一次调用，给mMediaPlayer_e2初始化
-            Boolean t_first=true;//第一次调用，给mMediaPlayer_t2初始化
+            int i = 0;
             int number_word = 0;
             Boolean flag_space = false;
             Boolean flag_word = false;
@@ -176,109 +215,12 @@ public class StudyModel extends AppCompatActivity {
 
                     } else if (chars[i] == '.') {
                         message=message+".";
-
-                        if(flag_e) {
-                            if(e_first) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                                e_first=false;
-                            }
-                            if (WPM < 6) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                            } else if (WPM < 10) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                            } else if (WPM < 12) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                            } else if (WPM < 14) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                            } else if (WPM < 16) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                            } else if (WPM < 18) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                            } else if (WPM < 20) {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                            } else {
-                                mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                            }
-                            mMediaPlayer_e.start();
-                            flag_e=false;
-                            mMediaPlayer_e2.release();
-                        }
-                        else {
-                            if (WPM < 6) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                            } else if (WPM < 10) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                            } else if (WPM < 12) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                            } else if (WPM < 14) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                            } else if (WPM < 16) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                            } else if (WPM < 18) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                            } else if (WPM < 20) {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                            } else {
-                                mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                            }
-                            mMediaPlayer_e.release();
-                            mMediaPlayer_e2.start();
-                            flag_e=true;
-
-                        }
+                        soundPool.play(sound_e,1,1,1,0,1);
 
                     } else if (chars[i] == '-') {
                         message=message+"-";
-                        if(flag_t) {
-                            if(t_first) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                                t_first=false;
-                            }
-                            if (WPM < 6) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                            } else if (WPM < 10) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                            } else if (WPM < 12) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                            } else if (WPM < 14) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                            } else if (WPM < 16) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                            } else if (WPM < 18) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                            } else if (WPM < 20) {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                            } else {
-                                mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                            }
-                            mMediaPlayer_t2.release();
-                            mMediaPlayer_t.start();
-                            flag_t=false;
+                        soundPool.play(sound_t,1,1,1,0,1);
 
-                        }else {
-                            if (WPM < 6) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                            } else if (WPM < 10) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                            } else if (WPM < 12) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                            } else if (WPM < 14) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                            } else if (WPM < 16) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                            } else if (WPM < 18) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                            } else if (WPM < 20) {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                            } else {
-                                mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                            }
-                            mMediaPlayer_t.release();
-                            mMediaPlayer_t2.start();
-                            flag_t=true;
-
-
-                        }
                     } else {
 
                         number_word += 1;
@@ -390,16 +332,8 @@ public class StudyModel extends AppCompatActivity {
                 if (countDownTimer!= null)
                 countDownTimer.cancel();
                 countDownTimer = new CountDownTimer(1333*delay, delay) {
-                    int i = 0;
-                    private MediaPlayer mMediaPlayer_e;
-                    private MediaPlayer mMediaPlayer_t;
-                    private MediaPlayer mMediaPlayer_e2;
-                    private MediaPlayer mMediaPlayer_t2;
-                    Boolean flag_e=true;//两个mediaplayer交换使用，随时释放release
-                    Boolean flag_t=true;//单独一个mediaplayer不释放，系统是有上限的
 
-                    Boolean e_first=true;//第一次调用，给mMediaPlayer_e2初始化
-                    Boolean t_first=true;//第一次调用，给mMediaPlayer_t2初始化
+                    int i = 0;
                     int number_word = 0;
                     Boolean flag_space = false;
                     Boolean flag_word = false;
@@ -425,110 +359,12 @@ public class StudyModel extends AppCompatActivity {
 
                             } else if (chars[i] == '.') {
                                 message=message+".";
-
-                                if(flag_e) {
-                                    if(e_first) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                                        e_first=false;
-                                    }
-                                    if (WPM < 6) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                                    } else if (WPM < 10) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                                    } else if (WPM < 12) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                                    } else if (WPM < 14) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                                    } else if (WPM < 16) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                                    } else if (WPM < 18) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                                    } else if (WPM < 20) {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                                    } else {
-                                        mMediaPlayer_e = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                                    }
-                                    mMediaPlayer_e2.release();
-                                    mMediaPlayer_e.start();
-                                    flag_e=false;
-
-                                }
-                                else {
-                                    if (WPM < 6) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5e);
-                                    } else if (WPM < 10) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7e);
-                                    } else if (WPM < 12) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10e);
-                                    } else if (WPM < 14) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12e);
-                                    } else if (WPM < 16) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14e);
-                                    } else if (WPM < 18) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16e);
-                                    } else if (WPM < 20) {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18e);
-                                    } else {
-                                        mMediaPlayer_e2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20e);
-                                    }
-                                    mMediaPlayer_e.release();
-                                    mMediaPlayer_e2.start();
-                                    flag_e=true;
-
-                                }
+                                soundPool.play(sound_e,1,1,1,0,1);
 
                             } else if (chars[i] == '-') {
                                 message=message+"-";
-                                if(flag_t) {
-                                    if(t_first) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                                        t_first=false;
-                                    }
-                                    if (WPM < 6) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                                    } else if (WPM < 10) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                                    } else if (WPM < 12) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                                    } else if (WPM < 14) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                                    } else if (WPM < 16) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                                    } else if (WPM < 18) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                                    } else if (WPM < 20) {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                                    } else {
-                                        mMediaPlayer_t = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                                    }
-                                    mMediaPlayer_t2.release();
-                                    mMediaPlayer_t.start();
-                                    flag_t=false;
+                                soundPool.play(sound_t,1,1,1,0,1);
 
-                                }else {
-                                    if (WPM < 6) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm5t);
-                                    } else if (WPM < 10) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm7t);
-                                    } else if (WPM < 12) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm10t);
-                                    } else if (WPM < 14) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm12t);
-                                    } else if (WPM < 16) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm14t);
-                                    } else if (WPM < 18) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm16t);
-                                    } else if (WPM < 20) {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm18t);
-                                    } else {
-                                        mMediaPlayer_t2 = MediaPlayer.create(getApplicationContext(), R.raw.wpm20t);
-                                    }
-                                    mMediaPlayer_t.release();
-                                    mMediaPlayer_t2.start();
-                                    flag_t=true;
-
-
-                                }
                             } else {
 
                                 number_word += 1;
@@ -551,11 +387,8 @@ public class StudyModel extends AppCompatActivity {
                             }
                             i=i+1;
                             break;
-
                         }
-
                     }
-
                     @Override
                     public void onFinish() {
                         i = 0;

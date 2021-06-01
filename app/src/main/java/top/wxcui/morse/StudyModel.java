@@ -97,6 +97,10 @@ public class StudyModel extends AppCompatActivity {
     Button END;
     Button CLEAR;
 
+    //函数生成的音频
+    private sound1 dash_sound=new sound1();
+    private sound2 dot_sound=new sound2();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,35 +159,35 @@ public class StudyModel extends AppCompatActivity {
 
         }
         else
-            soundPool=new SoundPool(2,0,0);
+            soundPool=new SoundPool(4,0,5);
             int sound_e;
             int sound_t;
 
 
         if (WPM < 6) {
              sound_e=soundPool.load(this,R.raw.wpm5e,1);
-             sound_t=soundPool.load(this,R.raw.wpm5e,1);
+             sound_t=soundPool.load(this,R.raw.wpm5t,1);
         } else if (WPM < 10) {
             sound_e=soundPool.load(this,R.raw.wpm7e,1);
-            sound_t=soundPool.load(this,R.raw.wpm7e,1);
+            sound_t=soundPool.load(this,R.raw.wpm7t,1);
         } else if (WPM < 12) {
             sound_e=soundPool.load(this,R.raw.wpm10e,1);
-            sound_t=soundPool.load(this,R.raw.wpm10e,1);
+            sound_t=soundPool.load(this,R.raw.wpm10t,1);
         } else if (WPM < 14) {
             sound_e=soundPool.load(this,R.raw.wpm12e,1);
             sound_t=soundPool.load(this,R.raw.wpm12t,1);
         } else if (WPM < 16) {
             sound_e=soundPool.load(this,R.raw.wpm14e,1);
-            sound_t=soundPool.load(this,R.raw.wpm14e,1);
+            sound_t=soundPool.load(this,R.raw.wpm14t,1);
         } else if (WPM < 18) {
             sound_e=soundPool.load(this,R.raw.wpm16e,1);
-            sound_t=soundPool.load(this,R.raw.wpm16e,1);
+            sound_t=soundPool.load(this,R.raw.wpm16t,1);
         } else if (WPM < 20) {
             sound_e=soundPool.load(this,R.raw.wpm18e,1);
-            sound_t=soundPool.load(this,R.raw.wpm18e,1);
+            sound_t=soundPool.load(this,R.raw.wpm18t,1);
         } else {
             sound_e=soundPool.load(this,R.raw.wpm20e,1);
-            sound_t=soundPool.load(this,R.raw.wpm20e,1);
+            sound_t=soundPool.load(this,R.raw.wpm20t,1);
         }
 
         Class1_Lessons = getResources().getStringArray(R.array.class1_lesson);
@@ -217,10 +221,12 @@ public class StudyModel extends AppCompatActivity {
 
                     } else if (chars[i] == '.') {
                         message=message+".";
+                        soundPool.stop(sound_t);
                         soundPool.play(sound_e,1,1,1,0,1);
 
                     } else if (chars[i] == '-') {
                         message=message+"-";
+                        soundPool.stop(sound_e);
                         soundPool.play(sound_t,1,1,1,0,1);
 
                     } else {

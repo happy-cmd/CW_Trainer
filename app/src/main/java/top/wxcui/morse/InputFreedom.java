@@ -157,28 +157,28 @@ public class InputFreedom extends AppCompatActivity {
 
         if (WPM < 6) {
             sound_e=soundPool.load(this,R.raw.wpm5e,1);
-            sound_t=soundPool.load(this,R.raw.wpm5e,1);
+            sound_t=soundPool.load(this,R.raw.wpm5t,1);
         } else if (WPM < 10) {
             sound_e=soundPool.load(this,R.raw.wpm7e,1);
-            sound_t=soundPool.load(this,R.raw.wpm7e,1);
+            sound_t=soundPool.load(this,R.raw.wpm7t,1);
         } else if (WPM < 12) {
             sound_e=soundPool.load(this,R.raw.wpm10e,1);
-            sound_t=soundPool.load(this,R.raw.wpm10e,1);
+            sound_t=soundPool.load(this,R.raw.wpm10t,1);
         } else if (WPM < 14) {
             sound_e=soundPool.load(this,R.raw.wpm12e,1);
             sound_t=soundPool.load(this,R.raw.wpm12t,1);
         } else if (WPM < 16) {
             sound_e=soundPool.load(this,R.raw.wpm14e,1);
-            sound_t=soundPool.load(this,R.raw.wpm14e,1);
+            sound_t=soundPool.load(this,R.raw.wpm14t,1);
         } else if (WPM < 18) {
             sound_e=soundPool.load(this,R.raw.wpm16e,1);
-            sound_t=soundPool.load(this,R.raw.wpm16e,1);
+            sound_t=soundPool.load(this,R.raw.wpm16t,1);
         } else if (WPM < 20) {
             sound_e=soundPool.load(this,R.raw.wpm18e,1);
-            sound_t=soundPool.load(this,R.raw.wpm18e,1);
+            sound_t=soundPool.load(this,R.raw.wpm18t,1);
         } else {
             sound_e=soundPool.load(this,R.raw.wpm20e,1);
-            sound_t=soundPool.load(this,R.raw.wpm20e,1);
+            sound_t=soundPool.load(this,R.raw.wpm20t,1);
         }
 
 
@@ -236,7 +236,7 @@ public class InputFreedom extends AppCompatActivity {
 //                Uri uri=Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.wpm10e);
 //                ap.play(getBaseContext(), uri, false, USAGE_MEDIA);
                 //dash_sound.start();
-                soundPool.play(sound_e,1,1,1,0,1);
+                soundPool.play(sound_t,1,1,1,0,1);
 
             }
         });
